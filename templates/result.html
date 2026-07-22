@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Recommendations</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Your Top Recommendations</h1>
+
+<div class="cards">
+
+{% for movie in movies %}
+
+<div class="card">
+
+<img src="{{ url_for('static',
+filename='images/' + movie.image) }}">
+
+<h2>{{ movie.name }}</h2>
+
+<p>Genre : {{ movie.genre }}</p>
+
+<p>Rating : {{ movie.rating }}/10</p>
+
+<p>Match : {{ movie.percentage }}%</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<br>
+
+<a href="/">Search Again</a>
+
+</body>
+</html>
